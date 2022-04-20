@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlappyBirdDemo.Core.Models
+namespace SZTGUI_FF_T11_CORE.Models
 {
    public class Ball : GameItem
     {
@@ -12,16 +12,16 @@ namespace FlappyBirdDemo.Core.Models
 
         public double DY { get; set; }
 
-        public Ball(double x, double y, double dX) : base(x, y)
+        public Ball(double x, double y, double dX, ConsoleColor color, int value) : base(x, y)
         {
             DX = dX;
             DY = 0;
+            Color = color;
+            Value = value;
         }
 
-        public bool IsHealing { get; set; }
+        public bool IsHealing  => Color == ConsoleColor.Green ? true : false;
 
-        public bool IsDamaging { get; set; }
-
-        public ConsoleColor Color { get; set; }
+        public bool IsDamaging  => Color == ConsoleColor.Red ? true : false;
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace FlappyBirdDemo.Core.Models
+namespace SZTGUI_FF_T11_CORE.Models
 {
     public interface IGameModel
     {

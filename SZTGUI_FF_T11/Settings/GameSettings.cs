@@ -1,4 +1,4 @@
-﻿namespace FlappyBirdDemo.Core.Settings
+﻿namespace SZTGUI_FF_T11_CORE.Settings
 {
     public class GameSettings : IGameSettings
     {

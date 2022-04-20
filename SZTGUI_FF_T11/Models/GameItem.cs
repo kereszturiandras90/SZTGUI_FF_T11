@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FlappyBirdDemo.Core.Models
+namespace SZTGUI_FF_T11_CORE.Models
 {
     public abstract class GameItem
     {
@@ -10,6 +10,8 @@ namespace FlappyBirdDemo.Core.Models
         public double Angle { get; private set; }
 
         public int Value { get; set; }
+
+        public ConsoleColor Color { get; set; }
 
         public double AngleInRad
         {

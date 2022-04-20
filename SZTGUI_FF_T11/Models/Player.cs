@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlappyBirdDemo.Core.Models
+namespace SZTGUI_FF_T11_CORE.Models
 {
     public class Player : GameItem
     {
@@ -15,8 +15,8 @@ namespace FlappyBirdDemo.Core.Models
         {
             DX = dX;
             DY = 0;
+            Value = 5;
+            Color = ConsoleColor.Magenta;
         }
-
-        public ConsoleColor Color { get; set; }
     }
 }
