@@ -26,8 +26,6 @@
 
          string BackgroudPath { get; }
 
-         double BirdSkinHeight { get; }
-
         double GameAreaDefaultWidth { get; }
 
         double GameAreaDefaultHeight { get; }

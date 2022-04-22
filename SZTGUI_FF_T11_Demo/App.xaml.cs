@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace SZTGUI_FF_T11
+namespace SZTGUI_FF_T11_Demo
 {
     /// <summary>
     /// Interaction logic for App.xaml

@@ -28,8 +28,6 @@
 
         public string BackgroudPath => "Images/bg.png";
 
-        public double BirdSkinHeight => 21;
-
         public double GameAreaDefaultWidth => 640;
 
         public double GameAreaDefaultHeight => 480;

@@ -1,12 +1,10 @@
-﻿<Window x:Class="SZTGUI_FF_T11.MainWindow"
+﻿<Window x:Class="SZTGUI_FF_T11_Demo.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:SZTGUI_FF_T11"
+        xmlns:Controls="clr-namespace:SZTGUI_FF_T11_Demo.Controls"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+    <Controls:DemoControl></Controls:DemoControl>
 </Window>

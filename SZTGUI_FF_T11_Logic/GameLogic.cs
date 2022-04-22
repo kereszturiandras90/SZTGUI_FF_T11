@@ -25,6 +25,18 @@ namespace SZTGUI_FF_T11_Logic
             throw new NotImplementedException();
         }
 
+        public bool HasCollision(Player player, Ball ball)
+        {
+            if (Math.Sqrt((Math.Pow(player.X - ball.X, 2) + Math.Pow(player.Y - ball.Y, 2)) ) < 2*setting.BallSize)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public void MoveBall()
         {
             foreach (Ball ball in model.Balls)
@@ -89,5 +101,6 @@ namespace SZTGUI_FF_T11_Logic
                 // end of game;
             }
         }
+
     }
 }

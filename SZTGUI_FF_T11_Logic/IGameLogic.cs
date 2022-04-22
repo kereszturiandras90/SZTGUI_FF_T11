@@ -1,4 +1,5 @@
 ﻿using System;
+using SZTGUI_FF_T11_CORE.Models;
 
 namespace SZTGUI_FF_T11_Logic
 {
@@ -8,10 +9,12 @@ namespace SZTGUI_FF_T11_Logic
 
         void MoveBall();
 
-        void PlayerBallCollision();
+        void PlayerBallCollision(Player player, Ball ball);
 
         void BallBallCollision();
 
         void BAllWallCollision();
+
+        bool HasCollision(Player player, Ball ball);
     }
 }
