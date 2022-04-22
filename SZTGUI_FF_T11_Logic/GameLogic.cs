@@ -71,9 +71,23 @@ namespace SZTGUI_FF_T11_Logic
             }
         }
 
-        public void PlayerBallCollision()
+        public void PlayerBallCollision(Player player, Ball ball)
         {
-            throw new NotImplementedException();
+            if (player.Value >= ball.Value && !ball.IsDamaging )
+            {
+                player.Value = player.Value + ball.Value;
+            }
+            else if (player.Value < ball.Value && ball.IsHealing)
+            {
+                player.Value = player.Value + ball.Value;
+            } else if(player.Value >= ball.Value && ball.IsDamaging) 
+            {
+                player.Value = player.Value - ball.Value;
+            }
+            else
+            {
+                // end of game;
+            }
         }
     }
 }
