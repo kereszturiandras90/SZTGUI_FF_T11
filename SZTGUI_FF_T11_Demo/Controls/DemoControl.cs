@@ -22,6 +22,7 @@ namespace SZTGUI_FF_T11_Demo.Controls
         IGameSettings gameSettings;
        // DisplaySettings displaySettings;
         DispatcherTimer timer;
+        DispatcherTimer timer2;
 
         public DemoControl()
         {
@@ -47,17 +48,42 @@ namespace SZTGUI_FF_T11_Demo.Controls
                 timer.Interval = TimeSpan.FromMilliseconds(130);
                 timer.Tick += Timer_Tick;
                 timer.Start();
+
+                timer2 = new DispatcherTimer();
+                timer2.Interval = TimeSpan.FromMilliseconds(1000);
+                timer2.Tick += Seconds_Tick;
+                timer2.Start();
             }
 
+        }
+
+        private void Seconds_Tick(object sender, EventArgs e)
+        {
+            gameModel.TimeCounter++;
+            if (gameModel.TimeCounter % 20 == 0)
+            {
+                double playerx = gameModel.Player.X;
+                double playery = gameModel.Player.Y;
+                int playerValue = gameModel.Player.Value;
+                int count = gameModel.TimeCounter;
+                gameModel = new GameModel(ActualWidth, ActualHeight, gameSettings);
+                gameModel.Player.X = playerx;
+                gameModel.Player.Y = playery;
+                gameModel.Player.Value = playerValue;
+                gameModel.TimeCounter = count;
+                gameLogic = new GameLogic(gameModel, gameSettings);
+                gameRenderer = new GameRenderer(gameModel, gameSettings);
+
+                InvalidateVisual(); // Call the renderer
+
+
+            }
         }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
             gameModel.GameAreaWidth = ActualWidth;
             gameModel.GameAreaHeight = ActualHeight;
-
-            //gameLogic.MovePlayer();
-            //  gameLogic.MoveTubes();
 
             gameLogic.MoveBall();
 

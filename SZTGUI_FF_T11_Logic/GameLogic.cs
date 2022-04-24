@@ -27,7 +27,7 @@ namespace SZTGUI_FF_T11_Logic
 
         public bool HasCollision(Player player, Ball ball)
         {
-            if (Math.Sqrt((Math.Pow(player.X - ball.X, 2) + Math.Pow(player.Y - ball.Y, 2)) ) < 2*setting.BallSize)
+            if (Math.Sqrt((Math.Pow(player.X - ball.X, 2) + Math.Pow(player.Y - ball.Y, 2)) ) < setting.BallSize/2)
             {
                 return true;
             }
@@ -50,29 +50,34 @@ namespace SZTGUI_FF_T11_Logic
         {
             switch (direction)
             {
+                
                 case 'U':
-                    if ((model.Player.Y - setting.BallSize <= setting.GameAreaDefaultHeight)  && (model.Player.Y - setting.BallSize >= 0))
+                     var newPos = model.Player.Y - setting.BallSize;
+                    if ((newPos < setting.GameAreaDefaultHeight)  && (newPos > setting.BallSize))
                     {
                         model.Player.Y = model.Player.Y - setting.BallSize;
                         
                     }
                     break;
                 case 'D':
-                    if ((model.Player.Y + setting.BallSize <= setting.GameAreaDefaultHeight) && (model.Player.Y + setting.BallSize >= 0))
+                    var newPos2 = model.Player.Y + setting.BallSize;
+                    if ((newPos2 < setting.GameAreaDefaultHeight) && (newPos2  > setting.BallSize))
                     {
                         model.Player.Y = model.Player.Y + setting.BallSize;
 
                     }
                     break;
                 case 'L':
-                    if ((model.Player.X - setting.BallSize <= setting.GameAreaDefaultWidth) && (model.Player.X - setting.BallSize >= 0))
+                    var newPos3 = model.Player.X - setting.BallSize;
+                    if ((newPos3 < setting.GameAreaDefaultWidth) && (newPos3  > setting.BallSize))
                     {
                         model.Player.X = model.Player.X - setting.BallSize;
 
                     }
                     break;
                 case 'R':
-                    if ((model.Player.X + setting.BallSize <= setting.GameAreaDefaultWidth) && (model.Player.X -+setting.BallSize >= 0))
+                    var newPos4 = model.Player.X + setting.BallSize;
+                    if ((newPos4 < setting.GameAreaDefaultWidth) && (newPos4  > setting.BallSize))
                     {
                         model.Player.X = model.Player.X + setting.BallSize;
 
@@ -88,13 +93,16 @@ namespace SZTGUI_FF_T11_Logic
             if (player.Value >= ball.Value && !ball.IsDamaging )
             {
                 player.Value = player.Value + ball.Value;
+                ball = null;
             }
             else if (player.Value < ball.Value && ball.IsHealing)
             {
                 player.Value = player.Value + ball.Value;
+                ball = null;
             } else if(player.Value >= ball.Value && ball.IsDamaging) 
             {
                 player.Value = player.Value - ball.Value;
+                ball = null;
             }
             else
             {
