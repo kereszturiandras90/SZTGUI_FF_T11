@@ -92,6 +92,8 @@ namespace SZTGUI_FF_T11_Demo.Controls
                 if (gameLogic.HasCollision(gameModel.Player, ball))
                 {
                     gameLogic.PlayerBallCollision(gameModel.Player, ball);
+                    ball.X = -150;
+                    ball.Y = -150;
                 }
             }
 
