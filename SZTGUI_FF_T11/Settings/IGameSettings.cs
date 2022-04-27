@@ -4,31 +4,31 @@
     {
         #region Player
 
-        double PlayerInitXPosition { get; }
+        double PlayerInitXPosition { get; set; }
 
-        double PlayerInitYPosition { get; }
+        double PlayerInitYPosition { get; set; }
 
-        double PlayerSize { get; }
+        double PlayerSize { get; set; }
 
         #endregion
 
         #region Ball
 
-        int BallCount { get; }
+        int BallCount { get; set; }
 
-        double BallSize { get; }
+        double BallSize { get; set; }
 
-        double BallSpeed { get; }
+        double BallSpeed { get; set; }
 
         #endregion
 
         #region General
 
-         string BackgroudPath { get; }
+         string BackgroudPath { get; set; }
 
-        double GameAreaDefaultWidth { get; }
+        double GameAreaDefaultWidth { get; set; }
 
-        double GameAreaDefaultHeight { get; }
+        double GameAreaDefaultHeight { get; set; }
 
         #endregion
     }
