@@ -12,6 +12,11 @@ namespace SZTGUI_FF_T11_CORE.Models
 
         public double DY { get; set; }
 
+        public Ball() : base(0,0)
+        {
+
+        }
+
         public Ball(double x, double y, double dX, ConsoleColor color, int value) : base(x, y)
         {
             DX = dX;
