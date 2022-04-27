@@ -7,7 +7,7 @@ namespace SZTGUI_FF_T11_CORE.Models
         public double X { get; set; }
         public double Y { get; set; }
 
-        public double Angle { get; private set; }
+        public double Angle { get; set; }
 
         public int Value { get; set; }
 
