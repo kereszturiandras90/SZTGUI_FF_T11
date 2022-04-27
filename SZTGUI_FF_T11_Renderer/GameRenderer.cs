@@ -16,7 +16,7 @@ namespace SZTGUI_FF_T11_Renderer
         IGameSettings gameSettings;
 
         Typeface font = new Typeface("Comic Sans");
-        Point textStartPoint = new Point(400, 13);
+        Point textStartPoint = new Point(480, 13);
         
 
         Pen magentaPen = new Pen(Brushes.Magenta, 2);

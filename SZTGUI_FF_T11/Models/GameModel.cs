@@ -137,7 +137,8 @@ namespace SZTGUI_FF_T11_CORE.Models
                 }
 
                 Random rnd3 = new Random();
-                int num3 = rnd3.Next(0, 11);
+                //  int num3 = rnd3.Next(0, 11);
+                int num3 = rnd3.Next(Player.Value - 5, Player.Value + 5);
 
 
 

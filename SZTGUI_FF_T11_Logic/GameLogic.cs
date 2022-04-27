@@ -93,15 +93,17 @@ namespace SZTGUI_FF_T11_Logic
             if (player.Value >= ball.Value && !ball.IsDamaging )
             {
                 player.Value = player.Value + ball.Value;
-                ball = null;
+                //model.Balls.Remove(ball);
             }
             else if (player.Value < ball.Value && ball.IsHealing)
             {
                 player.Value = player.Value + ball.Value;
+                //model.Balls.Remove(ball);
                 ball = null;
             } else if(player.Value >= ball.Value && ball.IsDamaging) 
             {
                 player.Value = player.Value - ball.Value;
+                //model.Balls.Remove(ball);
                 ball = null;
             }
             else
