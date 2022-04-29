@@ -30,6 +30,8 @@
 
         double GameAreaDefaultHeight { get; }
 
+        string Difficulty { get; }
+
         #endregion
     }
 }

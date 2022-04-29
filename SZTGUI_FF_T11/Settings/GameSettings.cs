@@ -32,6 +32,8 @@
 
         public double GameAreaDefaultHeight => 480;
 
+        public string Difficulty => "Hard";
+
         #endregion
     }
 }
