@@ -25,6 +25,7 @@ namespace SZTGUI_FF_T11_Repo
             gameSettings.BackgroudPath = xDoc.Element("GameSettings").Element("BackgroudPath").Value;
             gameSettings.GameAreaDefaultWidth = double.Parse(xDoc.Element("GameSettings").Element("GameAreaDefaultWidth").Value);
             gameSettings.GameAreaDefaultHeight = double.Parse(xDoc.Element("GameSettings").Element("GameAreaDefaultHeight").Value);
+            gameSettings.Difficulty = xDoc.Element("GameSettings").Element("Difficulty").Value;
 
             return gameSettings;
         }
@@ -41,7 +42,8 @@ namespace SZTGUI_FF_T11_Repo
                     new XElement("BallSpeed", entity.BallSpeed),
                     new XElement("BackgroudPath", entity.BackgroudPath),
                     new XElement("GameAreaDefaultWidth", entity.GameAreaDefaultWidth),
-                    new XElement("GameAreaDefaultHeight", entity.GameAreaDefaultHeight))
+                    new XElement("GameAreaDefaultHeight", entity.GameAreaDefaultHeight),
+                    new XElement("Difficulty", entity.Difficulty))
                 );
 
             outDoc.Save(path);
