@@ -2,13 +2,26 @@
 {
     public class GameSettings : IGameSettings
     {
+        public GameSettings()
+        {
+            PlayerInitXPosition = 0;
+            PlayerInitYPosition = GameAreaDefaultHeight;
+            PlayerSize = 10;
+            BallCount = 5;
+            BallSize = 10;
+            BallSpeed = 1;
+            BackgroudPath = "Images/bg.png";
+            GameAreaDefaultWidth = 640;
+            GameAreaDefaultHeight = 480;
+        }
+
         #region Player
 
-        public double PlayerInitXPosition => 0;
+        public double PlayerInitXPosition { get; set; }
 
-        public double PlayerInitYPosition => GameAreaDefaultHeight;
+        public double PlayerInitYPosition { get; set; }
 
-        public double PlayerSize => 10;
+        public double PlayerSize { get; set; }
 
 
 
@@ -16,21 +29,22 @@
 
         #region Ball
 
-        public int BallCount => 5;
+        public int BallCount { get; set; }
 
-        public double BallSize => 10;
+        public double BallSize { get; set; }
 
-        public double BallSpeed => 1;
+        public double BallSpeed { get; set; }
 
         #endregion
 
         #region General
 
-        public string BackgroudPath => "Images/bg.png";
+        public string BackgroudPath { get; set; }
 
-        public double GameAreaDefaultWidth => 640;
+        public double GameAreaDefaultWidth { get; set; }
 
-        public double GameAreaDefaultHeight => 480;
+        public double GameAreaDefaultHeight { get; set; }
+
 
         public string Difficulty => "Hard";
 

@@ -8,6 +8,9 @@ namespace SZTGUI_FF_T11_CORE.Models
 {
     public class Player : GameItem
     {
+
+        public string Name { get; set; }
+        
         public double DX { get; set; }
 
         public double DY { get; set; }

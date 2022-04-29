@@ -18,6 +18,12 @@ namespace SZTGUI_FF_T11_CORE.Models
         public double GameAreaWidth { get; set; }
         public double GameAreaHeight { get; set; }
 
+        public GameModel()
+        {
+
+        }
+
+
         public GameModel(double gameAreaWidth, double gameAreaHeight, IGameSettings gameSettings, bool NotFirst = false)
         {
             GameAreaWidth = gameAreaWidth;
