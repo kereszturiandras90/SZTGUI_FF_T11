@@ -17,7 +17,7 @@ namespace SZTGUI_FF_T11_CORE.Models
 
         }
 
-        public Ball(double x, double y, double dX, ConsoleColor color, int value) : base(x, y)
+        public Ball(double x, double y, double dX, double dY, ConsoleColor color, int value) : base(x, y)
         {
             DX = dX;
             DY = dY;
