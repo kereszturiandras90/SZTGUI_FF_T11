@@ -13,6 +13,7 @@
             BackgroudPath = "Images/bg.png";
             GameAreaDefaultWidth = 640;
             GameAreaDefaultHeight = 480;
+            Difficulty = "Easy";
         }
 
         #region Player
@@ -45,6 +46,8 @@
 
         public double GameAreaDefaultHeight { get; set; }
 
+
+        public string Difficulty { get; set; }
 
         #endregion
     }

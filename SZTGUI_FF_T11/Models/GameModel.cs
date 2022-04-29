@@ -29,6 +29,12 @@ namespace SZTGUI_FF_T11_CORE.Models
             GameAreaWidth = gameAreaWidth;
             GameAreaHeight = gameAreaHeight;
             Balls = new List<Ball>();
+           /* if (NotFirst == false)
+            {
+                Player = new Player(gameSettings.BallSize / 2, gameAreaHeight - gameSettings.BallSize / 2, 0);
+                InitBalls(gameSettings, gameAreaWidth, gameAreaHeight);
+            }*/
+           // Player = new Player(gameSettings.BallSize / 2, gameAreaHeight - gameSettings.BallSize / 2, 0);
 
             InitDefaultValues(gameSettings, gameAreaWidth, gameAreaHeight);
             if (NotFirst)
@@ -75,21 +81,24 @@ namespace SZTGUI_FF_T11_CORE.Models
                 }
 
                 Random rnd3 = new Random();
-                int num3 = rnd3.Next(0, 11);
+                int num3 = rnd3.Next(this.Player.Value-5, this.Player.Value+5);
+
+                Random rnd4 = new Random(); 
+                int num4 = rnd4.Next(0, 2); // to decide to have angle at the beginning or not
 
 
 
                 if (!YInitialPositions.Contains(num))
                 {
-                    Balls.Add(new Ball(gameAreaWidth, num * gameSettings.BallSize, 5, cc, num3));
+                    Balls.Add(new Ball(gameAreaWidth, num * gameSettings.BallSize, 1, (num4 == 1) && (gameSettings.Difficulty == "Medium" || gameSettings.Difficulty == "Hard") ? 1 : 0, cc, num3));
                 }
                 else if (YInitialPositions.Contains(num) && (num * gameSettings.BallSize == gameAreaHeight))
                 {
-                    Balls.Add(new Ball(gameAreaWidth, 0, 5, cc, num3));
+                    Balls.Add(new Ball(gameAreaWidth, 0, 1, (num4 == 1) && (gameSettings.Difficulty == "Medium" || gameSettings.Difficulty == "Hard") ? 1 : 0, cc, num3));
                 }
                 else
                 {
-                    Balls.Add(new Ball(gameAreaWidth, num * gameSettings.BallSize + 1, 5, cc, num3));
+                    Balls.Add(new Ball(gameAreaWidth, num * gameSettings.BallSize + 1, 1, (num4 == 1) && (gameSettings.Difficulty == "Medium" || gameSettings.Difficulty == "Hard") ? 1 : 0, cc, num3));
                 }
             }
         }
@@ -140,22 +149,24 @@ namespace SZTGUI_FF_T11_CORE.Models
                 //  int num3 = rnd3.Next(0, 11);
                 int num3 = rnd3.Next(Player.Value - 5, Player.Value + 5);
 
+                Random rnd4 = new Random();
+                int num4 = rnd4.Next(0, 2); // to decide to have angle at the beginning or not
 
 
                 if (!YInitialPositions.Contains(num))
                 {
-                    Balls.Add(new Ball(gameAreaWidth, num * gameSettings.BallSize, 5, cc, num3));
+                    Balls.Add(new Ball(gameAreaWidth, num * gameSettings.BallSize, 1, (num4 == 1) && (gameSettings.Difficulty == "Medium" || gameSettings.Difficulty == "Hard") ? 1 : 0, cc, num3));
                 }
                 else if (YInitialPositions.Contains(num) && (num * gameSettings.BallSize == gameAreaHeight))
                 {
-                    Balls.Add(new Ball(gameAreaWidth, 0, 5, cc, num3));
+                    Balls.Add(new Ball(gameAreaWidth, 0, 1, (num4 == 1) && (gameSettings.Difficulty == "Medium" || gameSettings.Difficulty == "Hard") ? 1 : 0, cc, num3));
                 }
                 else
                 {
-                    Balls.Add(new Ball(gameAreaWidth, num * gameSettings.BallSize + 1, 5, cc, num3));
+                    Balls.Add(new Ball(gameAreaWidth, num * gameSettings.BallSize + 1, 1, (num4 == 1) && (gameSettings.Difficulty == "Medium" || gameSettings.Difficulty == "Hard") ? 1 : 0, cc, num3));
                 }
             }
-        }
+        } 
 
 
      /*   private void InitBalls(IGameSettings gameSettings, double gameAreaWidth, double gameAreaHeight)

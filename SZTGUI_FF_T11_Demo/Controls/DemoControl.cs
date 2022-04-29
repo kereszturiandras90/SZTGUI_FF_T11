@@ -20,7 +20,7 @@ namespace SZTGUI_FF_T11_Demo.Controls
         IGameLogic gameLogic;
         IGameRenderer gameRenderer;
         IGameSettings gameSettings;
-       // DisplaySettings displaySettings;
+        DisplaySettings displaySettings;
         DispatcherTimer timer;
         DispatcherTimer timer2;
 
@@ -35,6 +35,7 @@ namespace SZTGUI_FF_T11_Demo.Controls
             gameModel = new GameModel(ActualWidth, ActualHeight, gameSettings);
             gameLogic = new GameLogic(gameModel, gameSettings);
             gameRenderer = new GameRenderer(gameModel, gameSettings);
+            displaySettings = new DisplaySettings();
 
             InvalidateVisual(); // Call the renderer
 
@@ -53,26 +54,40 @@ namespace SZTGUI_FF_T11_Demo.Controls
                 timer2.Interval = TimeSpan.FromMilliseconds(1000);
                 timer2.Tick += Seconds_Tick;
                 timer2.Start();
+
+
+              /*  if (gameModel.TimeCounter % 30 == 0 && gameModel.TimeCounter != 0)
+                {
+                    timer.Interval = timer.Interval * 0.9;
+                }*/
             }
 
         }
 
         private void Seconds_Tick(object sender, EventArgs e)
-        {
+        {  // second -> min minute conv
             gameModel.TimeCounter++;
-            if (gameModel.TimeCounter % 20 == 0)
+            if (gameModel.TimeCounter % 20 == 0) //
             {
                 double playerx = gameModel.Player.X;
                 double playery = gameModel.Player.Y;
                 int playerValue = gameModel.Player.Value;
                 int count = gameModel.TimeCounter;
-                gameModel = new GameModel(ActualWidth, ActualHeight, gameSettings);
+                gameModel = new GameModel(ActualWidth, ActualHeight, gameSettings, true);
                 gameModel.Player.X = playerx;
                 gameModel.Player.Y = playery;
                 gameModel.Player.Value = playerValue;
                 gameModel.TimeCounter = count;
                 gameLogic = new GameLogic(gameModel, gameSettings);
                 gameRenderer = new GameRenderer(gameModel, gameSettings);
+                foreach (Ball ball in gameModel.Balls)
+                {
+                    Random rnd = new Random();
+                    int ballValue = rnd.Next(gameModel.Player.Value-5, gameModel.Player.Value + 5);
+                    ball.Value = ballValue;
+                }
+                timer.Interval = timer.Interval * 0.9;
+                
 
                 InvalidateVisual(); // Call the renderer
 
@@ -96,6 +111,13 @@ namespace SZTGUI_FF_T11_Demo.Controls
                     ball.Y = -150;
                 }
             }
+
+            gameLogic.BAllWallCollision();
+            if (gameSettings.Difficulty == "Hard")
+            {
+                gameLogic.BallBallCollision();
+            }
+            
 
             InvalidateVisual();
         }
@@ -124,7 +146,7 @@ namespace SZTGUI_FF_T11_Demo.Controls
         {
             if (gameModel != null)
             {
-                gameRenderer.Display(drawingContext);
+                gameRenderer.Display(drawingContext, displaySettings);
             }
         }
     }

@@ -12,4 +12,8 @@
     <ProjectReference Include="..\SZTGUI_FF_T11_Renderer\SZTGUI_FF_T11_Renderer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
+
 </Project>
