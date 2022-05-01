@@ -2,6 +2,13 @@
 {
     public class GameSettings : IGameSettings
     {
+        public enum DifficultyType
+        {
+            Easy,
+            Medium,
+            Hard
+        }
+
         public GameSettings()
         {
             PlayerInitXPosition = 0;
