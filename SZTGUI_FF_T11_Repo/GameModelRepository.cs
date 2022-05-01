@@ -8,12 +8,12 @@ using SZTGUI_FF_T11_CORE.Models;
 
 namespace SZTGUI_FF_T11_Repo
 {
-    class GameModelRepository : Repository<GameModel>, IGameModelRepository
+    public class GameModelRepository : Repository<GameModel>, IGameModelRepository
     {
         public override GameModel Load(string path)
         {
             GameModel gameModel = new GameModel();
-            Ball ball = new Ball();
+            Ball ball;
 
             XDocument xDoc = XDocument.Load(path);
 
@@ -39,6 +39,7 @@ namespace SZTGUI_FF_T11_Repo
             
             foreach (var aBall in balls)
             {
+                ball = new Ball();
                 ball.X = double.Parse(aBall.X);
                 ball.Y = double.Parse(aBall.Y);
                 ball.Angle = double.Parse(aBall.Angle);
