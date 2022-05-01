@@ -2,6 +2,13 @@
 {
     public class GameSettings : IGameSettings
     {
+        public enum DifficultyType
+        {
+            Easy,
+            Medium,
+            Hard
+        }
+
         public GameSettings()
         {
             PlayerInitXPosition = 0;
@@ -13,7 +20,7 @@
             BackgroudPath = "Images/bg.png";
             GameAreaDefaultWidth = 640;
             GameAreaDefaultHeight = 480;
-            Difficulty = "Easy";
+            Difficulty = "Hard";
         }
 
         #region Player

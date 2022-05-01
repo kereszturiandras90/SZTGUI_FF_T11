@@ -18,6 +18,7 @@ namespace SZTGUI_FF_T11_Renderer
 
         Typeface font = new Typeface("Comic Sans");
         Point textStartPoint = new Point(640, 13);
+        Point difficultyTextStartPoint = new Point(640, 50);
         
 
         Pen magentaPen = new Pen(Brushes.Magenta, 2);
@@ -38,6 +39,7 @@ namespace SZTGUI_FF_T11_Renderer
             DrawPlayer(ctx);
             DrawBalls(ctx);
             DrawTime(ctx);
+            DrawDifficulty(ctx);
         }
 
         private void DrawBackground(DrawingContext ctx, DisplaySettings displaySettings)
@@ -60,9 +62,18 @@ namespace SZTGUI_FF_T11_Renderer
                 $"{gameModel.TimeCounter.ToString()} s"  : $"{gameModel.TimeCounter/60} min {gameModel.TimeCounter % 60} s",
                 System.Globalization.CultureInfo.CurrentCulture,
                 FlowDirection.LeftToRight,
-                font, 13, Brushes.Black, 1.25);
+                font, 18, Brushes.Black, 1.25);
 
             ctx.DrawText(text, textStartPoint);
+
+
+        }
+
+        private void DrawDifficulty(DrawingContext ctx)
+        {
+            var text = new FormattedText($"Difficulty: {gameSettings.Difficulty}",System.Globalization.CultureInfo.CurrentCulture, FlowDirection.LeftToRight, font, 18, Brushes.Black, 1.25);
+            ctx.DrawText(text, difficultyTextStartPoint);
+
         }
 
         private void DrawPlayer(DrawingContext ctx)
