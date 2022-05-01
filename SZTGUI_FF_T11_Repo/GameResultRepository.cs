@@ -9,8 +9,12 @@ using SZTGUI_FF_T11_CORE.Models;
 
 namespace SZTGUI_FF_T11_Repo
 {
-    class GameResultRepository : Repository<GameResult>, IGameResultRepository
+    public class GameResultRepository : Repository<GameResult>, IGameResultRepository
     {
+        public GameResultRepository()
+        {
+        }
+
         public override GameResult Load(string path)
         {
             throw new NotImplementedException();
@@ -19,11 +23,11 @@ namespace SZTGUI_FF_T11_Repo
         public List<GameResult> LoadResults(string path)
         {
             List<GameResult> gameResults = new List<GameResult>();
-            GameResult gameResult = new GameResult();
+            GameResult gameResult;
 
             XDocument xDoc = XDocument.Load(path);
 
-            var results = xDoc.Elements("Result").Select(x => new {
+            var results = xDoc.Elements("Results").Elements("Result").Select(x => new {
                                                                     PlayerName = x.Element("PlayerName").Value,
                                                                     Score = x.Element("Score").Value,
                                                                     DateTime = x.Element("DateTime").Value
@@ -31,6 +35,7 @@ namespace SZTGUI_FF_T11_Repo
 
             foreach (var result in results)
             {
+                gameResult = new GameResult();
                 gameResult.PlayerName = result.PlayerName;
                 gameResult.Score = int.Parse(result.Score);
                 gameResult.DateTime = DateTime.ParseExact(result.DateTime, "yyyy'-'MM'-'dd'T'HH':'mm':'ss",
