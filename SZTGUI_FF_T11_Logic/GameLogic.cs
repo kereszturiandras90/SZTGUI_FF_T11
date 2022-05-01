@@ -21,7 +21,7 @@ namespace SZTGUI_FF_T11_Logic
             {
                 foreach (Ball ball2 in model.Balls)
                 {
-                    if (ball1 != ball2 && (Math.Sqrt((Math.Pow(ball1.X - ball2.X, 2) + Math.Pow(ball1.Y - ball2.Y, 2))) < setting.BallSize * 2))
+                    if (ball1 != ball2 && (Math.Sqrt((Math.Pow(ball1.X - ball2.X, 2) + Math.Pow(ball1.Y - ball2.Y, 2))) < setting.BallSize))
                     {
 
                         //Compute angles
@@ -142,19 +142,14 @@ namespace SZTGUI_FF_T11_Logic
         {
             if (player.Value >= ball.Value && !ball.IsDamaging )
             {
-                player.Value = player.Value + ball.Value;
-                //model.Balls.Remove(ball);
+                player.Value = player.Value + ball.Value;           
             }
             else if (player.Value < ball.Value && ball.IsHealing)
             {
                 player.Value = player.Value + ball.Value;
-                //model.Balls.Remove(ball);
-                //ball = null;
             } else if(player.Value >= ball.Value && ball.IsDamaging) 
             {
                 player.Value = player.Value - ball.Value;
-                //model.Balls.Remove(ball);
-                //ball = null;
             }
             else
             {

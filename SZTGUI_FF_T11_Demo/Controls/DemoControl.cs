@@ -126,7 +126,9 @@ namespace SZTGUI_FF_T11_Demo.Controls
         {
             switch (e.Key)
             {
-               
+                case Key.Escape:
+                    timer.IsEnabled = !timer.IsEnabled;
+                    break;
                 case Key.Up:
                     gameLogic.MovePlayer('U');
                     break;
