@@ -7,9 +7,9 @@ namespace SZTGUI_FF_T11_CORE.Models
 {
     public class GameModel : IGameModel
     {
-        public Player Player { get; private set; }
+        public Player Player { get; set; }
 
-        public List<Ball> Balls { get; private set; }
+        public List<Ball> Balls { get; set; }
 
         public int TimeCounter { get; set; }
 

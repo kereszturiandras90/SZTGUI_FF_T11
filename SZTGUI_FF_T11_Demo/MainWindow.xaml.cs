@@ -12,5 +12,17 @@ namespace SZTGUI_FF_T11_Demo
         {
             InitializeComponent();
         }
+
+        private void New_Click(object sender, RoutedEventArgs e)
+        {
+            NewGame newGameWin = new NewGame();
+            newGameWin.ShowDialog();
+            this.Close();
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -6,5 +6,24 @@
         xmlns:Controls="clr-namespace:SZTGUI_FF_T11_Demo.Controls"
         mc:Ignorable="d"
         Title="Játék" Height="450" Width="800">
-    <Controls:DemoControl></Controls:DemoControl>
+    <Window.Resources>
+        <Controls:DemoControl x:Key="VM"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource VM}">
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_Menü">
+                    <MenuItem Header="_Új" Click="New_Click" Command="{Binding NewMenu}"/>
+                    <MenuItem Header="_Megnyitás" Command="{Binding OpenMenu}"/>
+                    <MenuItem Header="_Mentés" Command="{Binding SaveMenu}"/>
+                    <MenuItem Header="_Dicsőségtábla" Command="{Binding GameResultsMenu}"/>
+                    <Separator />
+                    <MenuItem Header="_Kilépés" Click="Exit_Click" Command="{Binding ExitMenu}"/>
+                </MenuItem>
+            </Menu>
+            <TextBox AcceptsReturn="True" />
+            <Controls:DemoControl></Controls:DemoControl>
+        </DockPanel>
+    </Grid>
+
 </Window>

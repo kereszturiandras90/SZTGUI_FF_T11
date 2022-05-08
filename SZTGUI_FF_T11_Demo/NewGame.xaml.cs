@@ -26,7 +26,8 @@ namespace SZTGUI_FF_T11_Demo
 
         private void OK_Click(object sender, RoutedEventArgs e)
         {
-            DialogResult = true;
+            //DialogResult = true;
+            this.Close();
         }
     }
 }

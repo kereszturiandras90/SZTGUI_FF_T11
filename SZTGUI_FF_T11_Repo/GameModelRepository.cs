@@ -13,6 +13,8 @@ namespace SZTGUI_FF_T11_Repo
         public override GameModel Load(string path)
         {
             GameModel gameModel = new GameModel();
+            gameModel.Player = new Player(0,0,0);
+            gameModel.Balls = new List<Ball>();
             Ball ball;
 
             XDocument xDoc = XDocument.Load(path);

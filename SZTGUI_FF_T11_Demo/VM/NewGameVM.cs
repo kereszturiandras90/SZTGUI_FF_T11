@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using SZTGUI_FF_T11_CORE.Models;
 using SZTGUI_FF_T11_CORE.Settings;
+using SZTGUI_FF_T11_Demo.Controls;
 //using static SZTGUI_FF_T11_CORE.Settings.GameSettings;
 
 namespace SZTGUI_FF_T11_Demo.VM
@@ -54,8 +55,14 @@ namespace SZTGUI_FF_T11_Demo.VM
 
         private void StartNewGame(Player player, GameSettings gameSettings)
         {
+            GameModel gameModel = new GameModel();
+            gameModel.Player = player;
+
+            //DemoControl demoControl = new DemoControl(gameModel, gameSettings);
+
             MainWindow newMainWin = new MainWindow();
             newMainWin.Show();
+            
             //throw new NotImplementedException();
         }
     }
