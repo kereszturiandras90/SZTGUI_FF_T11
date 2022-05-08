@@ -8,6 +8,7 @@ namespace SZTGUI_FF_T11_Logic
     {
         IGameModel model;
         IGameSettings setting;
+        ILoadAndSaveLogic loadAndSaveLogic;
 
         public GameLogic(IGameModel model, IGameSettings setting)
         {
@@ -15,6 +16,21 @@ namespace SZTGUI_FF_T11_Logic
             this.setting = setting;
         }
 
+        public void Save()
+        {
+            loadAndSaveLogic = new LoadAndSaveLogic();
+            loadAndSaveLogic.SaveGameModel(this.model as GameModel, "test.xml");
+            loadAndSaveLogic.SaveGameSettings(this.setting as GameSettings, "test.xml.set");
+        }
+
+        public void Load()
+        {
+            loadAndSaveLogic = new LoadAndSaveLogic();
+            loadAndSaveLogic.LoadGameModel("test.xml");
+            loadAndSaveLogic.LoadGameSettings("test.xml.set");
+           // loadAndSaveLogic.LoadGameResults("test.xml")
+
+        }
         public void BallBallCollision()
         {
             foreach (Ball ball1 in model.Balls)

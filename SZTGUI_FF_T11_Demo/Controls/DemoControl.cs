@@ -27,6 +27,8 @@ namespace SZTGUI_FF_T11_Demo.Controls
         DisplaySettings displaySettings;
         DispatcherTimer timer;
         DispatcherTimer timer2;
+        public LoadAndSaveLogic loadAndSaveLogic;
+        bool saving;
 
         public string PlayerName { get; set; }
         public Array Difficulties
@@ -56,8 +58,20 @@ namespace SZTGUI_FF_T11_Demo.Controls
             ExitMenu = new RelayCommand(() => Exit_Menu());
 
             gameSettings = new GameSettings();
-            gameModel = new GameModel(0, 0, gameSettings);
-            
+           // gameModel = new GameModel(0, 0, gameSettings);
+
+            //gameSettings = new GameSettings();
+            gameModel = new GameModel(640, 480, gameSettings);
+            //gameModel.GameAreaHeight = ActualHeight;
+            //gameModel.GameAreaWidth = ActualWidth;
+
+            gameLogic = new GameLogic(gameModel, gameSettings);
+            loadAndSaveLogic = new LoadAndSaveLogic();
+            gameRenderer = new GameRenderer(gameModel, gameSettings);
+            displaySettings = new DisplaySettings();
+
+
+            ;
 
         }
 
@@ -79,17 +93,27 @@ namespace SZTGUI_FF_T11_Demo.Controls
                 path = openFileDialog.FileName;
             }
 
-            LoadAndSaveLogic logic = new LoadAndSaveLogic();
+            //LoadAndSaveLogic logic = new LoadAndSaveLogic();
 
-            gameModel = logic.LoadGameModel(path);
-            gameSettings = logic.LoadGameSettings(path+".set");
+            //gameModel = logic.LoadGameModel(path);
+            //gameSettings = logic.LoadGameSettings(path+".set");
             
+            //File.Copy(path, "test.xml");
+            //File.Copy(path, "test.xml.set");
+            //(gameLogic as GameLogic).Load();
+
         }
 
         private void Save_Menu()
         {
+            saving = true;
+            ;         
+            //MessageBox.Show("save called");
             string path = "";
             FileInfo fileInfo = null;
+
+          //  timer.Stop;
+
 
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             //saveFileDialog.DefaultExt = "xml";
@@ -101,10 +125,13 @@ namespace SZTGUI_FF_T11_Demo.Controls
                 fileInfo = new FileInfo(path);
             }
 
-            LoadAndSaveLogic logic = new LoadAndSaveLogic();
+            //LoadAndSaveLogic logic = new LoadAndSaveLogic();
 
-            logic.SaveGameModel(gameModel as GameModel,path );
-            logic.SaveGameSettings(gameSettings as GameSettings, path + ".set");
+            // loadAndSaveLogic.SaveGameModel(gameModel as GameModel,path );
+            // loadAndSaveLogic.SaveGameSettings(gameSettings as GameSettings, path + ".set");
+
+            File.Copy("test.xml", path);
+            (gameLogic as GameLogic).Save();
             ;
         }
 
@@ -122,13 +149,13 @@ namespace SZTGUI_FF_T11_Demo.Controls
         private void DemoControl_Loaded(object sender, RoutedEventArgs e)
         {
             //gameSettings = new GameSettings();
-            gameModel = new GameModel(ActualWidth, ActualHeight, gameSettings);
+        /*   gameModel = new GameModel(ActualWidth, ActualHeight, gameSettings);
             //gameModel.GameAreaHeight = ActualHeight;
             //gameModel.GameAreaWidth = ActualWidth;
             
             gameLogic = new GameLogic(gameModel, gameSettings);
             gameRenderer = new GameRenderer(gameModel, gameSettings);
-            displaySettings = new DisplaySettings();
+            displaySettings = new DisplaySettings(); */
 
             InvalidateVisual(); // Call the renderer
 
@@ -151,6 +178,13 @@ namespace SZTGUI_FF_T11_Demo.Controls
                 timer2.Interval = TimeSpan.FromMilliseconds(1000);
                 timer2.Tick += Seconds_Tick;
                 timer2.Start();
+
+               // (gameLogic as GameLogic).Save();
+
+                if (saving)
+                {
+                    MessageBox.Show("Save init");
+                }
 
 
               /*  if (gameModel.TimeCounter % 30 == 0 && gameModel.TimeCounter != 0)
@@ -216,7 +250,12 @@ namespace SZTGUI_FF_T11_Demo.Controls
             }
 
             ;
+
             InvalidateVisual();
+            (gameLogic as GameLogic).Save();
+            //(gameLogic as GameLogic).Load();
+
+            //  MessageBox.Show($"{ball.X}");
         }
 
         private void Window_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
