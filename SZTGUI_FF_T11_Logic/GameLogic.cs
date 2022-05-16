@@ -79,7 +79,7 @@ namespace SZTGUI_FF_T11_Logic
         {
             foreach  (Ball ball in model.Balls)
             {
-                if (ball.DY > 0 && (ball.Y + setting.BallSize >= setting.GameAreaDefaultHeight))
+                if (ball.DY > 0 && (ball.Y + setting.BallSize >= model.GameAreaHeight))
                 {
                     ball.DY = -(ball.DY);
                 }

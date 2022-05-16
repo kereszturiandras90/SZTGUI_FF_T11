@@ -12,6 +12,8 @@ namespace SZTGUI_FF_T11_CORE.Models
 
         public double DY { get; set; }
 
+      //  public double Size { get; set; }
+
         public Ball() : base(0,0)
         {
 

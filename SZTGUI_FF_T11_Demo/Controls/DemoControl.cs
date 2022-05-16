@@ -61,7 +61,7 @@ namespace SZTGUI_FF_T11_Demo.Controls
            // gameModel = new GameModel(0, 0, gameSettings);
 
             //gameSettings = new GameSettings();
-            gameModel = new GameModel(640, 480, gameSettings);
+            gameModel = new GameModel(gameSettings.GameAreaDefaultWidth, gameSettings.GameAreaDefaultHeight, gameSettings);
             //gameModel.GameAreaHeight = ActualHeight;
             //gameModel.GameAreaWidth = ActualWidth;
 
@@ -204,7 +204,7 @@ namespace SZTGUI_FF_T11_Demo.Controls
                 double playery = gameModel.Player.Y;
                 int playerValue = gameModel.Player.Value;
                 int count = gameModel.TimeCounter;
-                //gameModel = new GameModel(ActualWidth, ActualHeight, gameSettings, true);
+                gameModel = new GameModel(gameSettings.GameAreaDefaultWidth, gameSettings.GameAreaDefaultHeight, gameSettings, true);
                 gameModel.Player.X = playerx;
                 gameModel.Player.Y = playery;
                 gameModel.Player.Value = playerValue;
@@ -240,6 +240,7 @@ namespace SZTGUI_FF_T11_Demo.Controls
                     gameLogic.PlayerBallCollision(gameModel.Player, ball);
                     ball.X = -150;
                     ball.Y = -150;
+                    gameSettings.PlayerSize = gameSettings.BallSize / 5 * gameModel.Player.Value;
                 }
             }
 

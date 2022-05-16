@@ -17,8 +17,8 @@ namespace SZTGUI_FF_T11_Renderer
         IGameSettings gameSettings;
 
         Typeface font = new Typeface("Comic Sans");
-        Point textStartPoint = new Point(640, 13);
-        Point difficultyTextStartPoint = new Point(640, 50);
+        Point textStartPoint;
+        Point difficultyTextStartPoint;
         
 
         Pen magentaPen = new Pen(Brushes.Magenta, 2);
@@ -29,6 +29,9 @@ namespace SZTGUI_FF_T11_Renderer
         {
             this.gameModel = gameModel;
             this.gameSettings = gameSettings;
+
+            textStartPoint = new Point(500, 13);
+            difficultyTextStartPoint = new Point(500, 50);
 
             backgroundPattern = new ImageBrush(new BitmapImage(new System.Uri(gameSettings.BackgroudPath, System.UriKind.Relative)));
         }
@@ -64,6 +67,7 @@ namespace SZTGUI_FF_T11_Renderer
                 FlowDirection.LeftToRight,
                 font, 18, Brushes.Black, 1.25);
 
+
             ctx.DrawText(text, textStartPoint);
 
 
@@ -78,8 +82,21 @@ namespace SZTGUI_FF_T11_Renderer
 
         private void DrawPlayer(DrawingContext ctx)
         {
+
+           /* if (5 < gameModel.Player.Value && gameModel.Player.Value <= 10)
+            {
+                gameSettings.BallSize = gameSettings.BallSize * 1.1;
+            }
+            else if (10 < gameModel.Player.Value && gameModel.Player.Value <= 15)
+            {
+                gameSettings.BallSize = gameSettings.BallSize * 1.1;
+            }
+            else if (15 <= gameModel.Player.Value )
+            {
+                gameSettings.BallSize = (gameSettings.BallSize / 15) * gameModel.Player.Value;
+            }*/
             Point playerPoint = new Point(gameModel.Player.X, gameModel.Player.Y);
-            ctx.DrawEllipse(Brushes.Magenta, magentaPen, playerPoint, gameSettings.BallSize, gameSettings.BallSize);
+            ctx.DrawEllipse(Brushes.Magenta, magentaPen, playerPoint, gameSettings.PlayerSize, gameSettings.PlayerSize);
            
 
             var number = new FormattedText(
