@@ -7,13 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SZTGUI_FF_T11\SZTGUI_FF_T11_CORE.csproj" />
-    <ProjectReference Include="..\SZTGUI_FF_T11_Logic\SZTGUI_FF_T11_Logic.csproj" />
-    <ProjectReference Include="..\SZTGUI_FF_T11_Renderer\SZTGUI_FF_T11_Renderer.csproj" />
+    <None Remove="Images\background_4.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Images\" />
+    <Content Include="Images\background_4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SZTGUI_FF_T11\SZTGUI_FF_T11_CORE.csproj" />
+    <ProjectReference Include="..\SZTGUI_FF_T11_Logic\SZTGUI_FF_T11_Logic.csproj" />
+    <ProjectReference Include="..\SZTGUI_FF_T11_Renderer\SZTGUI_FF_T11_Renderer.csproj" />
   </ItemGroup>
 
   <ItemGroup>

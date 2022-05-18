@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SZTGUI_FF_T11_Logic", "SZTG
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SZTGUI_FF_T11_Demo", "SZTGUI_FF_T11_Demo\SZTGUI_FF_T11_Demo.csproj", "{4B498BC7-D409-4EED-A529-F97BAD33BAFB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SZTGUI_FF_T11_Test", "SZTGUI_FF_T11_Test\SZTGUI_FF_T11_Test.csproj", "{F19A323E-F3D8-4327-8335-694E79213C30}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{4B498BC7-D409-4EED-A529-F97BAD33BAFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B498BC7-D409-4EED-A529-F97BAD33BAFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B498BC7-D409-4EED-A529-F97BAD33BAFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F19A323E-F3D8-4327-8335-694E79213C30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F19A323E-F3D8-4327-8335-694E79213C30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F19A323E-F3D8-4327-8335-694E79213C30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F19A323E-F3D8-4327-8335-694E79213C30}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

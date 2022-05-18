@@ -17,7 +17,7 @@
             BallCount = 5;
             BallSize = 10;
             BallSpeed = 1;
-            BackgroudPath = "Images/bg.png";
+            BackgroudPath = "Images/background_4.png";
             GameAreaDefaultWidth = 640;
             GameAreaDefaultHeight = 480;
             Difficulty = "Hard";
